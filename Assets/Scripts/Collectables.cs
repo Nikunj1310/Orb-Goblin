@@ -31,6 +31,7 @@ public class Collectables : MonoBehaviour
             levelEnd.currentOrbs++;
             orbCollectedText.text = ($"{levelEnd.currentOrbs}/{levelEnd.OrbsNeeded}");
             animator.SetBool("HasBeenCollected", true);
+            levelEnd.orbCollected = true;
             destroyObject = true;
         }
     }
