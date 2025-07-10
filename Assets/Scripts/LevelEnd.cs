@@ -1,24 +1,38 @@
+using TMPro;
 using UnityEngine;
 
 public class LevelEnd : MonoBehaviour
 {
 
-    [SerializeField] int OrbsNeeded;
-    public int currentOrbs;
+    public int OrbsNeeded;
+    public int currentOrbs = 0;
     public bool LevelHasEnded = false;
+
+    public TextMeshProUGUI orbCollectedText;
+    [SerializeField] GameObject playerHealthBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerHealthBar = GameObject.Find("playerHealthBar");
+        orbCollectedText = playerHealthBar.transform.Find("OrbCollected") ?.GetComponent<TextMeshProUGUI>();
+        orbCollectedText.text = ($"{currentOrbs}/{OrbsNeeded}");
         LevelHasEnded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentOrbs >= OrbsNeeded)
+
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Level Ended!!!");
-            LevelHasEnded = true;
+            if (currentOrbs >= OrbsNeeded)
+            {
+                Debug.Log("Level Ended!!!");
+                LevelHasEnded = true;
+            }
         }
     }
 }
