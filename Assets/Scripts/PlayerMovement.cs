@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode CurrentJumpKey;
     public KeyCode defaultJumpkey = KeyCode.Space;
     public KeyCode[] CurrentHorizontalKeys = new KeyCode[4];
-    public KeyCode[] defaultHorizontalKeys = new KeyCode[] { KeyCode.A, KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow };
+    public KeyCode[] defaultHorizontalKeys = Settings.horizontal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
