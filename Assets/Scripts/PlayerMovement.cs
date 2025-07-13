@@ -80,21 +80,25 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             #region player hroizontal movement
-            if (CurrentHorizontalKeys.Any(key => Input.GetKey(key)))
+            if (canJump)
             {
-                playerRigidbody.linearVelocityX = currentPlayerSpeed * playerFlip();
-                // this.transform.position += new Vector3(currentPlayerSpeed,0,0)*Time.deltaTime;
-                groundFric.friction = 0;
-            }
-            else
-            {
-                groundFric.friction = frictionValue;
+                if (CurrentHorizontalKeys.Any(key => Input.GetKey(key)))
+                {
+                    playerRigidbody.linearVelocityX = currentPlayerSpeed * playerFlip();
+                    // this.transform.position += new Vector3(currentPlayerSpeed,0,0)*Time.deltaTime;
+                    playerRigidbody.linearDamping = 0;
+                }
+                else
+                {
+                    playerRigidbody.linearDamping = frictionValue;
+                }
             }
             #endregion
             #region player Jump
             if (Input.GetKeyDown(CurrentJumpKey) && canJump)
             {
                 StartCoroutine(JumpGravityAffectCoroutine());
+                playerRigidbody.linearDamping = 0;
                 playerRigidbody.AddForce(new Vector2(0, currentJumpForce));
             }
 
@@ -145,8 +149,8 @@ public class PlayerMovement : MonoBehaviour
             }
             yield return null;
         }
-
-        playerRigidbody.gravityScale = 1;
+        playerRigidbody.linearDamping = frictionValue;
+        playerRigidbody.gravityScale = 2;
 
     }
 

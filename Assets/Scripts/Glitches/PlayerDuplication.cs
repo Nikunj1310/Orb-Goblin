@@ -82,16 +82,8 @@ public class PlayerDuplication : MonoBehaviour
             movementScript.hitCooldown = Random.Range(movementScript.hitCooldownLowerLimit, movementScript.hitCooldownUpperLimit);
             movementScript.frictionValue = Random.Range(movementScript.frictionValueLowerLimit, movementScript.frictionValueUpperLimit);
 
-            PhysicsMaterial2D customMaterial = new PhysicsMaterial2D();
-            customMaterial.friction = movementScript.frictionValue;
-            customMaterial.bounciness = 0f;
 
             Collider2D playerCollider = playerInstance.GetComponent<Collider2D>();
-            if (playerCollider != null)
-            {
-                playerCollider.sharedMaterial = customMaterial;
-            }
-            movementScript.groundFric = customMaterial;
 
             playerDuplicationLowerLimit += bufferIncrease;
             playerDuplicationUpperLimit += bufferIncrease;

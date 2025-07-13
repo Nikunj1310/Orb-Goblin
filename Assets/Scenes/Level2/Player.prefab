@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -7751219071525288297, guid: 69f1c4a0ff027a38e9b45f95552ce1c1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1785981, g: 0.1785981, b: 0.15294118, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,9 +184,9 @@ MonoBehaviour:
   groundJumpLowerLimit: 250
   groundJumpUpperLimit: 450
   currentJumpForce: 0
-  frictionValue: 15.27
-  frictionValueLowerLimit: 13
-  frictionValueUpperLimit: 18
+  frictionValue: 2.5
+  frictionValueLowerLimit: 1.5
+  frictionValueUpperLimit: 4
   hitCooldown: 1
   hitCooldownLowerLimit: 0.4
   hitCooldownUpperLimit: 1.7

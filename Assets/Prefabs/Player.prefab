@@ -184,9 +184,9 @@ MonoBehaviour:
   groundJumpLowerLimit: 250
   groundJumpUpperLimit: 450
   currentJumpForce: 0
-  frictionValue: 15.27
-  frictionValueLowerLimit: 13
-  frictionValueUpperLimit: 18
+  frictionValue: 2.5
+  frictionValueLowerLimit: 1.5
+  frictionValueUpperLimit: 4
   hitCooldown: 1
   hitCooldownLowerLimit: 0.4
   hitCooldownUpperLimit: 1.7
