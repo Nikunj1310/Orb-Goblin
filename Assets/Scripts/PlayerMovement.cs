@@ -69,6 +69,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerRigidbody.linearVelocityY > 0.1 || playerRigidbody.linearVelocityY < -0.1)
+        {
+            playerRigidbody.linearDamping = 0;
+        } else {
+            playerRigidbody.linearDamping = frictionValue;
+        }
+
         if (player_Health.hasBeenHit)
         {
             canMove = false;
