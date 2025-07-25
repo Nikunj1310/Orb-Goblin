@@ -38,7 +38,6 @@ public class playerFollow : MonoBehaviour
         while (true)
         {
             float timer = Random.Range(2, 6);
-            Debug.Log(timer);
             currenPlayerIndex = Random.Range(0, playerDuplication.spawnedPlayers.Count);
             cinemachineCamera.Follow = playerDuplication.spawnedPlayers[currenPlayerIndex].transform;
             yield return new WaitForSeconds(timer);

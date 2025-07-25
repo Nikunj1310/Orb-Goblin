@@ -176,17 +176,17 @@ MonoBehaviour:
   groundFric: {fileID: 6200000, guid: f3afa6a5aeb9d4ca1912d89d406b7aac, type: 2}
   canMove: 1
   player_Health: {fileID: 0}
-  groundPlayerSpeed: 8
-  groundSpeedLowerLimit: 5
-  groundSpeedUpperLimit: 10
+  groundPlayerSpeed: 6
+  groundSpeedLowerLimit: 4
+  groundSpeedUpperLimit: 7
   currentPlayerSpeed: 0
   groundJumpforce: 350
   groundJumpLowerLimit: 250
   groundJumpUpperLimit: 450
   currentJumpForce: 0
-  frictionValue: 2.5
-  frictionValueLowerLimit: 1.5
-  frictionValueUpperLimit: 4
+  frictionValue: 9
+  frictionValueLowerLimit: 8
+  frictionValueUpperLimit: 14
   hitCooldown: 1
   hitCooldownLowerLimit: 0.4
   hitCooldownUpperLimit: 1.7

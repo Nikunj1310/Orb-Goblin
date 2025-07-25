@@ -16,8 +16,8 @@ public class TweakPlayerGravity : MonoBehaviour
     [SerializeField] private KeyCode[] downwardsMovement = new KeyCode[2] { KeyCode.S, KeyCode.DownArrow };
 
     // Track each player's coroutine and vertical movement state
-    [SerializeField]private Dictionary<GameObject, Coroutine> playerCoroutines = new Dictionary<GameObject, Coroutine>();
-    [SerializeField]private HashSet<GameObject> canMoveVertically = new HashSet<GameObject>();
+    [SerializeField] private Dictionary<GameObject, Coroutine> playerCoroutines = new Dictionary<GameObject, Coroutine>();
+    [SerializeField] private HashSet<GameObject> canMoveVertically = new HashSet<GameObject>();
 
     void Start()
     {
@@ -102,7 +102,11 @@ public class TweakPlayerGravity : MonoBehaviour
             if (rand % 2 == 0)
             {
                 Debug.Log("Time to tweak fr!");
-
+                player.transform.eulerAngles = new Vector3(
+                    player.transform.eulerAngles.x,
+                    player.transform.eulerAngles.y,
+                    180
+                );
                 float timer = Random.Range(lowerLimitforTweak, upperLimitforTweak);
                 float previousGravity = rb.gravityScale;
                 int luck = Random.Range(0, 11);
@@ -123,6 +127,12 @@ public class TweakPlayerGravity : MonoBehaviour
                 // Reset states
                 canMoveVertically.Remove(player);
                 rb.gravityScale = previousGravity;
+                player.transform.eulerAngles = new Vector3(
+                    player.transform.eulerAngles.x,
+                    player.transform.eulerAngles.y,
+                    0
+                );
+
             }
             else
             {

@@ -20,22 +20,12 @@ public class ReverseControls : MonoBehaviour
     [SerializeField] private float timer = 0f;
     [SerializeField] private float upperBondTimeLimit = 0f;
     [SerializeField] private float lowerBondTimeLimit = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        KeyCode A = playerMovement.defaultHorizontalKeys[0];
-        KeyCode leftArrow = playerMovement.defaultHorizontalKeys[1];
-        KeyCode D = playerMovement.defaultHorizontalKeys[2];
-        KeyCode rightArrow = playerMovement.defaultHorizontalKeys[3];
-        KeyCode jump = playerMovement.defaultJumpkey;
 
-        PlayerControlsEdit = new KeyCode[][]
-        {
-    new KeyCode[] {D, leftArrow, A, rightArrow, jump},
-    new KeyCode[] {D, rightArrow, A, leftArrow, jump},
-    new KeyCode[] {D, rightArrow, jump, leftArrow, A},
-    new KeyCode[] {A, rightArrow, leftArrow, D, jump}
-};
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+
 
     }
 
@@ -51,7 +41,32 @@ public class ReverseControls : MonoBehaviour
         if (collision.tag == "Player")
         {
             player = collision.gameObject;
+            Debug.Log("Is in Trigger for Reversed Controls");
             playerMovement = player.GetComponent<PlayerMovement>();
+            KeyCode A = playerMovement.defaultHorizontalKeys[0];
+            KeyCode leftArrow = playerMovement.defaultHorizontalKeys[1];
+            KeyCode D = playerMovement.defaultHorizontalKeys[2];
+            KeyCode rightArrow = playerMovement.defaultHorizontalKeys[3];
+            KeyCode jump = playerMovement.defaultJumpkey;
+
+            PlayerControlsEdit = new KeyCode[][]
+            {
+    new KeyCode[] {D, leftArrow, A, rightArrow, jump},
+    new KeyCode[] {D, rightArrow, A, leftArrow, jump},
+    new KeyCode[] {D, rightArrow, jump, leftArrow, A},
+    new KeyCode[] {A, rightArrow, leftArrow, D, jump}
+    };
+            if (playerMovement == null)
+            {
+                Debug.LogError("PlayerMovement component not found on Player!");
+                return;
+            }
+
+            if (PlayerControlsEdit == null)
+            {
+                Debug.LogError("PlayerControlsEdit array is null! Check ReverseControls initialization.");
+                return;
+            }
             if (reverseControls == null)
             {
                 reverseControls = StartCoroutine(reverseControlsCoroutine());
@@ -61,16 +76,26 @@ public class ReverseControls : MonoBehaviour
 
     IEnumerator reverseControlsCoroutine()
     {
-        yield return new WaitForSeconds(1f);
-        timer = Random.Range(lowerBondTimeLimit, upperBondTimeLimit);
-        int number = Random.Range(0, 4);
-        for (int i = 0; i < 4; i++)
+        while (true)
         {
-            playerMovement.CurrentHorizontalKeys[i] = PlayerControlsEdit[number][i];
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Setting Up the New Settings");
+            timer = Random.Range(lowerBondTimeLimit, upperBondTimeLimit);
+            int number = Random.Range(0, 4);
+            if (PlayerControlsEdit == null || playerMovement == null)
+            {
+                Debug.LogError("Setup error! PlayerControlsEdit or playerMovement is null.");
+                yield break;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                Debug.Log("Setting");
+                playerMovement.CurrentHorizontalKeys[i] = PlayerControlsEdit[number][i];
+            }
+            playerMovement.CurrentJumpKey = PlayerControlsEdit[number][4];
+            Debug.Log($"The random numebr for player controls is:\n{number}\nAnd the timer is of {timer}s");
+            yield return new WaitForSeconds(timer);
         }
-        playerMovement.CurrentJumpKey = PlayerControlsEdit[number][4];
-        Debug.Log($"The random numebr for player controls is:\n{number}\nAnd the timer is of {timer}s");
-        yield return new WaitForSeconds(timer);
     }
 
     void OnTriggerExit2D(Collider2D collision)

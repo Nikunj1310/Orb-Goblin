@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: WaterBottom
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -650053425108306497, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: -222825705, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: 1111757530, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: 2098623642, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: -1454198447, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: 521423572, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: 111347548, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  - {fileID: 2102225759, guid: e639f195151304a5c9f9c15303902b4d, type: 3}
+  m_MinSpeed: 8
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(JumpGravityAffectCoroutine());
                 playerRigidbody.linearDamping = 0;
-                playerRigidbody.AddForce(new Vector2(0, currentJumpForce));
+                playerRigidbody.AddForce(this.transform.up * currentJumpForce);
             }
 
             #endregion
