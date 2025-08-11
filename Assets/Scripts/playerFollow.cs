@@ -27,9 +27,16 @@ public class playerFollow : MonoBehaviour
         {
             coroutine = StartCoroutine(startFindingTargets());
         }
-        if (playerDuplication.spawnedPlayers[currenPlayerIndex] == null)
+        try
         {
-            cinemachineCamera.Follow = playerDuplication.spawnedPlayers[0].transform;
+            if (playerDuplication.spawnedPlayers[currenPlayerIndex] == null)
+            {
+                cinemachineCamera.Follow = playerDuplication.spawnedPlayers[0].transform;
+            }
+        }
+        catch
+        {
+            // Game Over
         }
     }
 

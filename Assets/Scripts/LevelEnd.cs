@@ -12,14 +12,18 @@ public class LevelEnd : MonoBehaviour
     public TextMeshProUGUI orbCollectedText;
     [SerializeField] GameObject playerHealthBar;
     [SerializeField] Animator animator;
+    [SerializeField] Animator PlayerAnimator;
+    [SerializeField] PlayerDuplication playerDuplication;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
         playerHealthBar = GameObject.Find("playerHealthBar");
-        orbCollectedText = playerHealthBar.transform.Find("OrbCollected") ?.GetComponent<TextMeshProUGUI>();
+        orbCollectedText = playerHealthBar.transform.Find("OrbCollected")?.GetComponent<TextMeshProUGUI>();
         orbCollectedText.text = ($"{currentOrbs}/{OrbsNeeded}");
         LevelHasEnded = false;
+        playerDuplication = GameObject.Find("Player Duplication").GetComponent<PlayerDuplication>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,12 @@ public class LevelEnd : MonoBehaviour
             {
                 Debug.Log("Level Ended!!!");
                 LevelHasEnded = true;
+                for (int i = playerDuplication.spawnedPlayers.Count - 1; i >= 0; i--)
+                {
+                    PlayerAnimator = playerDuplication.spawnedPlayers[i].GetComponent<Animator>();
+                    PlayerAnimator.SetBool("Died", true);
+                }
+
                 animator.SetBool("HasCollectedAllOrbs", true);
             }
         }

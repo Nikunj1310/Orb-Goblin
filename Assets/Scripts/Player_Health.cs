@@ -30,6 +30,7 @@ public class Player_Health : MonoBehaviour
                 Destroy(playerDuplication.spawnedPlayers[i]);
                 playerDuplication.spawnedPlayers.RemoveAt(i);
             }
+            
         }
     }
 

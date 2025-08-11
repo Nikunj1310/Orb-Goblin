@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode CurrentJumpKey;
     public KeyCode defaultJumpkey = KeyCode.Space;
     public KeyCode[] CurrentHorizontalKeys = new KeyCode[4];
-    public KeyCode[] defaultHorizontalKeys = Settings.horizontal;
+    public KeyCode[] defaultHorizontalKeys = new KeyCode[4] { KeyCode.A, KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Random Friction Value not acceptable, change!");
         }
+        
         playerRigidbody = this.GetComponent<Rigidbody2D>();
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
@@ -72,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
         if (playerRigidbody.linearVelocityY > 0.1 || playerRigidbody.linearVelocityY < -0.1)
         {
             playerRigidbody.linearDamping = 0;
-        } else {
+        }
+        else
+        {
             playerRigidbody.linearDamping = frictionValue;
         }
 
