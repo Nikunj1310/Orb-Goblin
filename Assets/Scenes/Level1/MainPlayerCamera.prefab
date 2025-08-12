@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3882843649848975172}
   - component: {fileID: 7082250925427177607}
   - component: {fileID: 6668469596785952302}
+  - component: {fileID: 991463753834004223}
   m_Layer: 0
   m_Name: MainPlayerCamera
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.43, y: 0.88}
+      Size: {x: 0.3, y: 0.2}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.88}
@@ -107,3 +108,27 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &991463753834004223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977281082072296061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}

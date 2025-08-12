@@ -14,6 +14,7 @@ public class LevelEnd : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Animator PlayerAnimator;
     [SerializeField] PlayerDuplication playerDuplication;
+    [SerializeField] AudioManager audioManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +25,8 @@ public class LevelEnd : MonoBehaviour
         orbCollectedText.text = ($"{currentOrbs}/{OrbsNeeded}");
         LevelHasEnded = false;
         playerDuplication = GameObject.Find("Player Duplication").GetComponent<PlayerDuplication>();
+        audioManager = GameObject.Find("GameManager").GetComponent<AudioManager>();
+
     }
 
     // Update is called once per frame
@@ -43,13 +46,27 @@ public class LevelEnd : MonoBehaviour
             {
                 Debug.Log("Level Ended!!!");
                 LevelHasEnded = true;
+
+                animator.SetBool("HasCollectedAllOrbs", true);
+                audioManager.PlaySFX(audioManager.doorOpenSound);
+
                 for (int i = playerDuplication.spawnedPlayers.Count - 1; i >= 0; i--)
                 {
                     PlayerAnimator = playerDuplication.spawnedPlayers[i].GetComponent<Animator>();
                     PlayerAnimator.SetBool("Died", true);
                 }
 
-                animator.SetBool("HasCollectedAllOrbs", true);
+                PlayerData data = SaveLoadSystem.Load();
+                data.currentLevel += 1;
+                SaveLoadSystem.Save(data);
+
+                // Load next scene if it exists, else load end/credits
+                string nextScene = $"Scenes/Level{data.currentLevel}";
+                if (Application.CanStreamedLevelBeLoaded(nextScene))
+                    SceneLoader.LoadSceneWithLoading(nextScene);
+                else
+                    SceneLoader.LoadSceneWithLoading("Scenes/Homepage");
+
             }
         }
     }

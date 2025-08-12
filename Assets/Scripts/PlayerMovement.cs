@@ -3,16 +3,21 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using System.Linq;
 using TreeEditor;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Assignment Attributes")]
     [SerializeField] GameObject gameManager;
+    [SerializeField] AudioManager audioManager;
+    private float stepTimer = 0f;
+    public float walkStepRate = 0.5f;
     [SerializeField] private Rigidbody2D playerRigidbody;
     [SerializeField] private SpriteRenderer spriteRenderer;
     public PhysicsMaterial2D groundFric;
     public bool canMove = false;
     [SerializeField] private Player_Health player_Health;
+    [SerializeField] CameraShakeTrigger cameraShakeTrigger;
 
     [Header("Player Movement Tweeks")]
     public float groundPlayerSpeed;
@@ -47,11 +52,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cameraShakeTrigger = this.gameObject.GetComponent<CameraShakeTrigger>();
         if (frictionValueLowerLimit < 5)
         {
             Debug.LogError("Random Friction Value not acceptable, change!");
         }
-        
+
         playerRigidbody = this.GetComponent<Rigidbody2D>();
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
@@ -65,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         CurrentJumpKey = defaultJumpkey;
         gameManager = GameObject.Find("GameManager");
         player_Health = gameManager.GetComponent<Player_Health>();
+        audioManager = gameManager.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -82,8 +89,10 @@ public class PlayerMovement : MonoBehaviour
         if (player_Health.hasBeenHit)
         {
             canMove = false;
+            cameraShakeTrigger.shakeTrigger = true;
             Vector3 currentDir = playerRigidbody.linearVelocity.normalized;
             playerRigidbody.linearVelocity = -currentDir * currentPlayerSpeed;
+            audioManager.PlaySFX(audioManager.hitSound);
             Debug.Log("Has been hit!");
         }
 
@@ -97,10 +106,17 @@ public class PlayerMovement : MonoBehaviour
                     playerRigidbody.linearVelocityX = currentPlayerSpeed * playerFlip();
                     // this.transform.position += new Vector3(currentPlayerSpeed,0,0)*Time.deltaTime;
                     playerRigidbody.linearDamping = 0;
+                    stepTimer -= Time.deltaTime;
+                    if (stepTimer <= 0f)
+                    {
+                        audioManager.PlaySFX(audioManager.walkSound);
+                        stepTimer = walkStepRate;
+                    }
                 }
                 else
                 {
                     playerRigidbody.linearDamping = frictionValue;
+                    stepTimer = 0;
                 }
             }
             #endregion
@@ -146,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator JumpGravityAffectCoroutine()
     {
         timerJump = 0;
+        cameraShakeTrigger.shakeTrigger = true;
+        audioManager.PlaySFX(audioManager.jumpSound);
         while (!canJump || timerJump == 0)
         {
             timerJump += Time.deltaTime;
@@ -161,7 +179,8 @@ public class PlayerMovement : MonoBehaviour
         }
         playerRigidbody.linearDamping = frictionValue;
         playerRigidbody.gravityScale = 2;
-
+        cameraShakeTrigger.shakeTrigger = true;
+        audioManager.PlaySFX(audioManager.landSound);
     }
 
     int playerFlip()

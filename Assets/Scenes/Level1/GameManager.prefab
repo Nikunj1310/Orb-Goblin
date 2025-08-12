@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7309751353427074956}
   - component: {fileID: 3486309852544407952}
   - component: {fileID: 2298001288298123376}
+  - component: {fileID: 6324432724117211967}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -65,4 +66,27 @@ MonoBehaviour:
   playerHealth: 4
   playerHealthSlider: {fileID: 0}
   hasBeenHit: 0
+  playerDuplication: {fileID: 0}
+--- !u!114 &6324432724117211967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281023281403375971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b6bbb0255bb048fbd186118c76f4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: ca593a6c241871032a7f85b5f0de962d, type: 3}
+  walkSound: {fileID: 8300000, guid: 2333a5a835d9bae3a8a16476f2a00083, type: 3}
+  jumpSound: {fileID: 8300000, guid: 8b1b5822eec658fc3958593d88f67873, type: 3}
+  landSound: {fileID: 8300000, guid: 1b010883359e68cdd845243a2c495bfa, type: 3}
+  collectSound: {fileID: 8300000, guid: 89ade27c061013402a4b3ab86cced0ff, type: 3}
+  hitSound: {fileID: 8300000, guid: cdb4127f234acc881b47da77f2e770fd, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: 070779cdcfbe3ff4688691fb33bc3e4e, type: 3}
+  musicSource: {fileID: 0}
+  soundEffectsSourcePlayer: {fileID: 0}
+  playerFollow: {fileID: 0}
   playerDuplication: {fileID: 0}

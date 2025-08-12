@@ -3,9 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    public void PlayGame()
+    public void OnStartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerData data = SaveLoadSystem.Load();
+        string sceneName = $"Scenes/Level{data.currentLevel}"; // Scene names as per your attachment
+        SceneLoader.LoadSceneWithLoading(sceneName);
+    }
+    
+    public void OnNewGameButton()
+    {
+        SaveLoadSystem.DeleteSave();
+        SceneLoader.LoadSceneWithLoading("Scenes/Level1");
     }
 
     public void QuitGame()

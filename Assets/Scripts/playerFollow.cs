@@ -10,40 +10,45 @@ public class playerFollow : MonoBehaviour
     [SerializeField]
     private GameObject playerDuplicationObject;
     [SerializeField]
-    private int currenPlayerIndex;
+    public int currenPlayerIndex;
     private PlayerDuplication playerDuplication;
     private Coroutine coroutine = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("Player Follow Script Started");
         cinemachineCamera = (CinemachineCamera)this.gameObject.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
         playerDuplicationObject = GameObject.Find("Player Duplication");
         playerDuplication = playerDuplicationObject.GetComponent<PlayerDuplication>();
     }
 
     void Update()
-    {
+    {        cinemachineCamera = (CinemachineCamera)this.gameObject.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
+
+
+        Debug.Log("Player Follow Script Update");
         if (playerDuplication && cinemachineCamera && playerDuplicationObject && playerDuplication.spawnedPlayers.Count > 0 && coroutine == null)
         {
             coroutine = StartCoroutine(startFindingTargets());
         }
-        try
-        {
+        
+        
             if (playerDuplication.spawnedPlayers[currenPlayerIndex] == null)
             {
                 cinemachineCamera.Follow = playerDuplication.spawnedPlayers[0].transform;
             }
-        }
-        catch
-        {
+        
+        
+        
             // Game Over
-        }
+        
     }
 
     IEnumerator startFindingTargets()
     {
         while (true)
         {
+            Debug.Log("Finding Targets Coroutine Running");
             float timer = Random.Range(2, 6);
             currenPlayerIndex = Random.Range(0, playerDuplication.spawnedPlayers.Count);
             cinemachineCamera.Follow = playerDuplication.spawnedPlayers[currenPlayerIndex].transform;
