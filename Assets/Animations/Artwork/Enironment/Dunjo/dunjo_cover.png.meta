@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dunjo_cover_0: -1045540170386875117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

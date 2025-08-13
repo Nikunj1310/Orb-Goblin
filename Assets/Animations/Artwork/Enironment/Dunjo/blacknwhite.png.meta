@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blacknwhite_0: -7851136242997592427
+      blacknwhite_1: -6543207691265981972
+      blacknwhite_10: 1530939748344628407
+      blacknwhite_11: 4005635560893510376
+      blacknwhite_12: -6966779804303002903
+      blacknwhite_13: 1203741880964341183
+      blacknwhite_14: -925474670977583123
+      blacknwhite_15: 3124267851608952091
+      blacknwhite_16: -5492246487098916279
+      blacknwhite_17: 7507707029778979648
+      blacknwhite_18: 6391612436791886300
+      blacknwhite_19: 3431354604670361670
+      blacknwhite_2: -2310122353136907601
+      blacknwhite_3: -3247070001086992341
+      blacknwhite_4: -4042236263550400628
+      blacknwhite_5: 1611167377053088705
+      blacknwhite_6: 1144580597767734088
+      blacknwhite_7: -6411071401109987838
+      blacknwhite_8: 6921261513216146927
+      blacknwhite_9: -1282420872313706955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

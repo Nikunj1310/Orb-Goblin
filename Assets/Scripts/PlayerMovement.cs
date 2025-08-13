@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioManager audioManager;
     private float stepTimer = 0f;
     public float walkStepRate = 0.5f;
-    [SerializeField] private Rigidbody2D playerRigidbody;
+    public Rigidbody2D playerRigidbody;
     [SerializeField] private SpriteRenderer spriteRenderer;
     public PhysicsMaterial2D groundFric;
     public bool canMove = false;

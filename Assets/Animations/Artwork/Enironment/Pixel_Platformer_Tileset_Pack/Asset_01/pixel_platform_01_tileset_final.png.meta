@@ -647,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixel_platform_01_tileset_final_0: 6352595895586205592
+      pixel_platform_01_tileset_final_1: -7137675019307091914
+      pixel_platform_01_tileset_final_10: -2780205793302976166
+      pixel_platform_01_tileset_final_11: 8723558844268397681
+      pixel_platform_01_tileset_final_12: -4108108871503309456
+      pixel_platform_01_tileset_final_13: -8210334151060452190
+      pixel_platform_01_tileset_final_14: 4638947976047426254
+      pixel_platform_01_tileset_final_15: -4323365408064848846
+      pixel_platform_01_tileset_final_16: -8839878006556445239
+      pixel_platform_01_tileset_final_17: -8706256875608537453
+      pixel_platform_01_tileset_final_18: -6113787320976237464
+      pixel_platform_01_tileset_final_19: -3717493586136416699
+      pixel_platform_01_tileset_final_2: 30260314188516088
+      pixel_platform_01_tileset_final_20: -65867476919337019
+      pixel_platform_01_tileset_final_3: -5492571664736972570
+      pixel_platform_01_tileset_final_4: 2582427519927352998
+      pixel_platform_01_tileset_final_5: -3132337949599265073
+      pixel_platform_01_tileset_final_6: -7958652974803473560
+      pixel_platform_01_tileset_final_7: -4943759326731405027
+      pixel_platform_01_tileset_final_8: 7409221497915307672
+      pixel_platform_01_tileset_final_9: -2282833872635373203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixel_platform_02_tileset_final_0: 252195890578560813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

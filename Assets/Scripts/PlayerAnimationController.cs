@@ -26,7 +26,7 @@ public class PlayerAnimationController : MonoBehaviour
     void Update()
     {
         // Debug.Log(playerMovScrit.canJump);
-        if (playerMovScrit.CurrentHorizontalKeys.Any((Key) => Input.GetKey(Key)))
+        if ((playerMovScrit.playerRigidbody.linearVelocityX > 0.1f || playerMovScrit.playerRigidbody.linearVelocityX < -0.1f) && playerMovScrit.canJump)
         {
             animator.SetBool("isWalking", true);
         }

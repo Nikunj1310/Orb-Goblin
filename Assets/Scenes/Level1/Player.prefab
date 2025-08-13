@@ -175,28 +175,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
-  walkStepRate: 0.5
+  walkStepRate: 0.18
   playerRigidbody: {fileID: 0}
   spriteRenderer: {fileID: 0}
   groundFric: {fileID: 6200000, guid: 00d8f6a549b5f06f6a2ce2f039a60b1c, type: 2}
   canMove: 1
   player_Health: {fileID: 0}
   cameraShakeTrigger: {fileID: 0}
-  groundPlayerSpeed: 8
-  groundSpeedLowerLimit: 5
-  groundSpeedUpperLimit: 10
+  groundPlayerSpeed: 6
+  groundSpeedLowerLimit: 4
+  groundSpeedUpperLimit: 8
   currentPlayerSpeed: 0
-  groundJumpforce: 350
-  groundJumpLowerLimit: 250
-  groundJumpUpperLimit: 450
+  groundJumpforce: 500
+  groundJumpLowerLimit: 450
+  groundJumpUpperLimit: 600
   currentJumpForce: 0
-  frictionValue: 29.68
-  frictionValueLowerLimit: 1.5
-  frictionValueUpperLimit: 3.5
-  hitCooldown: 0.4
-  hitCooldownLowerLimit: 0.1
-  hitCooldownUpperLimit: 0.6
-  canJump: 0
+  frictionValue: 25
+  frictionValueLowerLimit: 15
+  frictionValueUpperLimit: 50
+  hitCooldown: 0.5
+  hitCooldownLowerLimit: 0.3
+  hitCooldownUpperLimit: 0.8
+  canJump: 1
   groundTagName: Ground
   timerJump: 0
   canMoveTimer: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
     DissipationMode: 2
     DissipationDistance: 100
     PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: 0.2, z: 0}
+  DefaultVelocity: {x: 0.05, y: 0.05, z: 0.03}
 --- !u!82 &2553192420859404369
 AudioSource:
   m_ObjectHideFlags: 0

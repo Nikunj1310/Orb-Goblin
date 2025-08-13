@@ -772,7 +772,33 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixel_platform_03_tileset_final_0: 5450674469973416587
+      pixel_platform_03_tileset_final_1: -6729987283543410413
+      pixel_platform_03_tileset_final_10: 4005195359306713183
+      pixel_platform_03_tileset_final_11: 7104352115579116417
+      pixel_platform_03_tileset_final_12: 4967657505697252440
+      pixel_platform_03_tileset_final_13: 6115916425568229579
+      pixel_platform_03_tileset_final_14: 3950713260769539969
+      pixel_platform_03_tileset_final_15: 494940811324600550
+      pixel_platform_03_tileset_final_16: -899068593667113344
+      pixel_platform_03_tileset_final_17: -621657468517344441
+      pixel_platform_03_tileset_final_18: -3395839588664211854
+      pixel_platform_03_tileset_final_19: -7370614333362195353
+      pixel_platform_03_tileset_final_2: 2661066029818422431
+      pixel_platform_03_tileset_final_20: -7724135739961490244
+      pixel_platform_03_tileset_final_21: 1288029797133813340
+      pixel_platform_03_tileset_final_22: 8298919748448316705
+      pixel_platform_03_tileset_final_23: 1643613074888108027
+      pixel_platform_03_tileset_final_24: -5324588015559342560
+      pixel_platform_03_tileset_final_25: -5596647364610266992
+      pixel_platform_03_tileset_final_3: 5217985796858129664
+      pixel_platform_03_tileset_final_4: 8403127384150497432
+      pixel_platform_03_tileset_final_5: -7565343900059649644
+      pixel_platform_03_tileset_final_6: 5652248496192846697
+      pixel_platform_03_tileset_final_7: 7063868563749120747
+      pixel_platform_03_tileset_final_8: -1059900868957442061
+      pixel_platform_03_tileset_final_9: 2915135955797664830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

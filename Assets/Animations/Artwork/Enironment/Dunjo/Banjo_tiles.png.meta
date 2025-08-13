@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Banjo_tiles_0: 3737558547686106597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
-  walkStepRate: 0.5
+  walkStepRate: 0.18
   playerRigidbody: {fileID: 0}
   spriteRenderer: {fileID: 0}
   groundFric: {fileID: 6200000, guid: f3afa6a5aeb9d4ca1912d89d406b7aac, type: 2}
@@ -186,16 +186,16 @@ MonoBehaviour:
   groundSpeedLowerLimit: 4
   groundSpeedUpperLimit: 7
   currentPlayerSpeed: 0
-  groundJumpforce: 350
-  groundJumpLowerLimit: 250
-  groundJumpUpperLimit: 450
+  groundJumpforce: 500
+  groundJumpLowerLimit: 450
+  groundJumpUpperLimit: 600
   currentJumpForce: 0
-  frictionValue: 9
-  frictionValueLowerLimit: 8
-  frictionValueUpperLimit: 14
-  hitCooldown: 1
-  hitCooldownLowerLimit: 0.4
-  hitCooldownUpperLimit: 1.7
+  frictionValue: 25
+  frictionValueLowerLimit: 15
+  frictionValueUpperLimit: 50
+  hitCooldown: 0.5
+  hitCooldownLowerLimit: 0.3
+  hitCooldownUpperLimit: 0.8
   canJump: 0
   groundTagName: Ground
   timerJump: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
     DissipationMode: 2
     DissipationDistance: 100
     PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: 0.2, z: 0}
+  DefaultVelocity: {x: 0.03, y: 0.05, z: 0.03}
 --- !u!114 &-2485659146930949051
 MonoBehaviour:
   m_ObjectHideFlags: 0
