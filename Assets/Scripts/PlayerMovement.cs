@@ -1,9 +1,6 @@
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
 using System.Linq;
-using TreeEditor;
-using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
